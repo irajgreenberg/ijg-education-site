@@ -1,0 +1,52 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main, staging]
+
+concurrency:
+  group: deploy-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, gogo]
+    steps:
+      - name: Resolve target dir + URL
+        id: target
+        run: |
+          if [ "${{ github.ref_name }}" = "main" ]; then
+            echo "dir=/home/ira/apps/ijg-education-site" >> "$GITHUB_OUTPUT"
+            echo "url=http://127.0.0.1:4321/" >> "$GITHUB_OUTPUT"
+          else
+            echo "dir=/home/ira/apps/ijg-education-site-staging" >> "$GITHUB_OUTPUT"
+            echo "url=http://127.0.0.1:4322/" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Fetch + hard reset checkout to ${{ github.sha }}
+        run: |
+          cd "${{ steps.target.outputs.dir }}"
+          git fetch --prune origin "${{ github.ref_name }}"
+          git reset --hard "origin/${{ github.ref_name }}"
+          git clean -fd
+
+      - name: Stamp asset versions (cache-bust styles.css + app.js)
+        run: |
+          cd "${{ steps.target.outputs.dir }}"
+          sha="${{ github.sha }}"
+          short="${sha:0:7}"
+          sed -i -E "s#(\"./(styles\.css|app\.js))\"#\1?v=${short}\"#g" index.html
+          grep -E "styles\.css\?v=|app\.js\?v=" index.html
+
+      - name: Health check
+        run: |
+          for i in 1 2 3 4 5; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "${{ steps.target.outputs.url }}")
+            if [ "$code" = "200" ]; then
+              echo "OK ($code) on attempt $i"
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "Health check failed; last status $code"
+          exit 1
