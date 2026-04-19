@@ -407,6 +407,45 @@ img {
   text-transform: uppercase;
 }
 
+.proof-flow {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 52px;
+}
+
+.proof-card {
+  margin: 0;
+  display: grid;
+  gap: 18px;
+}
+
+.proof-card img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
+.proof-card figcaption {
+  display: grid;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.proof-card figcaption span {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+.proof-card figcaption p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.95;
+}
+
 .editorial-grid,
 .closing-grid {
   display: grid;
@@ -506,6 +545,7 @@ img {
   .editorial-grid,
   .closing-grid,
   .principles-grid,
+  .proof-flow,
   .capability-row,
   .evidence-row {
     grid-template-columns: 1fr;
