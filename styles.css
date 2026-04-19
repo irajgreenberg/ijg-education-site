@@ -115,33 +115,29 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 16px;
+  height: 16px;
   padding: 0;
-  border: 1px solid transparent;
-  border-radius: 999px;
+  border: 0;
   background: transparent;
   color: var(--muted);
   cursor: pointer;
-  transition: color 140ms ease, border-color 140ms ease, background-color 140ms ease;
+  transition: color 140ms ease, opacity 140ms ease;
 }
 
 .theme-toggle:hover {
   color: var(--text);
-  border-color: var(--line);
-  background: var(--surface);
 }
 
 .theme-toggle:focus-visible {
   outline: none;
   color: var(--text);
-  border-color: var(--line-strong);
-  background: var(--surface);
+  opacity: 1;
 }
 
 .theme-toggle-icon {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
 }
 
 .theme-toggle-icon-sun {
