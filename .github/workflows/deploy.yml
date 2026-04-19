@@ -30,6 +30,14 @@ jobs:
           git reset --hard "origin/${{ github.ref_name }}"
           git clean -fd
 
+      - name: Stamp asset versions (cache-bust styles.css + app.js)
+        run: |
+          cd "${{ steps.target.outputs.dir }}"
+          sha="${{ github.sha }}"
+          short="${sha:0:7}"
+          sed -i -E "s#(\"./(styles\.css|app\.js))\"#\1?v=${short}\"#g" index.html
+          grep -E "styles\.css\?v=|app\.js\?v=" index.html
+
       - name: Health check
         run: |
           for i in 1 2 3 4 5; do
