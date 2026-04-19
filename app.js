@@ -1,5 +1,6 @@
 const masthead = document.querySelector('.masthead');
 const themeToggle = document.querySelector('.theme-toggle');
+const themeToggleGlyph = document.querySelector('.theme-toggle-glyph');
 const root = document.documentElement;
 const THEME_KEY = 'ijg-education-theme';
 
@@ -19,6 +20,10 @@ const setTheme = (theme) => {
     const nextLabel = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
     themeToggle.setAttribute('aria-label', nextLabel);
     themeToggle.setAttribute('title', nextLabel);
+  }
+
+  if (themeToggleGlyph) {
+    themeToggleGlyph.textContent = theme === 'dark' ? '◌' : '◐';
   }
 };
 

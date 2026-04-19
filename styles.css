@@ -135,21 +135,11 @@ img {
   opacity: 1;
 }
 
-.theme-toggle-icon {
-  width: 12px;
-  height: 12px;
-}
-
-.theme-toggle-icon-sun {
-  display: none;
-}
-
-:root[data-theme='dark'] .theme-toggle-icon-moon {
-  display: none;
-}
-
-:root[data-theme='dark'] .theme-toggle-icon-sun {
-  display: block;
+.theme-toggle-glyph {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0;
 }
 
 .mastnav a,
