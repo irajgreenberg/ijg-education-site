@@ -382,20 +382,26 @@ img {
   margin: 0;
 }
 
-.essay-figure img {
+.essay-figure img,
+.essay-figure video {
   border: 1px solid var(--line);
   object-fit: cover;
+  width: 100%;
+  display: block;
 }
 
-.essay-landscape img {
+.essay-landscape img,
+.essay-landscape video {
   aspect-ratio: 16 / 10;
 }
 
-.essay-square img {
+.essay-square img,
+.essay-square video {
   aspect-ratio: 1 / 1;
 }
 
-.essay-portrait img {
+.essay-portrait img,
+.essay-portrait video {
   aspect-ratio: 4 / 5;
 }
 
