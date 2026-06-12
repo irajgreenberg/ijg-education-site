@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/InterVariable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #f7f4ee;
   --surface: #fffdfa;
@@ -541,6 +549,105 @@ img {
   margin-top: 18px;
 }
 
+.inline-link {
+  color: var(--accent);
+  border-bottom: 1px solid var(--line-strong);
+  transition: color 140ms ease, border-color 140ms ease;
+}
+
+.inline-link:hover {
+  color: var(--text);
+  border-bottom-color: var(--text);
+}
+
+.wide-head .supporting-copy {
+  max-width: 68ch;
+  margin: 28px 0 0;
+}
+
+.section-head .supporting-copy {
+  margin: 28px 0 0;
+}
+
+.pilot-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 52px;
+}
+
+.pilot-card {
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.pilot-card h3 {
+  margin: 0;
+  max-width: 18ch;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: -0.045em;
+}
+
+.pilot-card p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.95;
+}
+
+.cta-panel {
+  margin-top: 48px;
+  padding: 34px 36px 38px;
+  border: 1px solid var(--line-strong);
+}
+
+.cta-panel p {
+  margin: 0;
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.95;
+}
+
+.cta-panel .hero-actions {
+  margin-top: 30px;
+}
+
+.site-footer {
+  display: grid;
+  gap: 22px;
+  padding: 64px 0 72px;
+  border-top: 1px solid var(--line);
+}
+
+.footer-ring {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+}
+
+.footer-ring a {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 140ms ease;
+}
+
+.footer-ring a:hover {
+  color: var(--text);
+}
+
+.colophon {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+  max-width: 72ch;
+}
+
 @media (max-width: 1200px) {
   .hero-grid,
   .hero-strip,
@@ -552,6 +659,7 @@ img {
   .closing-grid,
   .principles-grid,
   .proof-flow,
+  .pilot-cards,
   .capability-row,
   .evidence-row {
     grid-template-columns: 1fr;
