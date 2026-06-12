@@ -2,7 +2,7 @@ const masthead = document.querySelector('.masthead');
 const themeToggle = document.querySelector('.theme-toggle');
 const themeToggleGlyph = document.querySelector('.theme-toggle-glyph');
 const root = document.documentElement;
-const THEME_KEY = 'ijg-education-theme';
+const THEME_KEY = 'ij8-pilots-theme';
 
 if (masthead) {
   const syncScrollState = () => {
