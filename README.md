@@ -18,11 +18,11 @@ Self-hosted on the `gogo` server, fronted by Cloudflare Tunnel. CI/CD via
 GitHub Actions with a self-hosted runner on the same box.
 
 - Push to `staging` -> https://education-staging.ijglabs.ai (port 4322)
-- Merge `staging` -> `main` (PR) -> https://education.ijglabs.ai (port 4321)
+- Merge `staging` -> `main` (PR) -> https://pilots.ij8.ai (port 4321)
 
-Public hostname is moving to `pilots.ij8.ai` (Cloudflare hostname change by
-Ira; `education.ijglabs.ai` will redirect). The hostname appears in exactly
-two places: the colophon in `index.html` and this README.
+Live at `pilots.ij8.ai` since 2026-06-12 (`education.ijglabs.ai` was removed,
+not redirected). The hostname appears in exactly two places: the colophon in
+`index.html` and this README.
 
 Workflow: edit on `staging`, push, review at staging URL, PR to `main` when ready.
 
